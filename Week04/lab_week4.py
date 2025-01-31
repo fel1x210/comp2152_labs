@@ -132,24 +132,36 @@ combat_strength = min(6, (combat_strength + weaponRoll))
 print("The hero\'s weapon is " + str(weapons[weaponRoll - 1]))
 
 # Q5
-print("You find a loot bag! Look inside to find 2 items")
-input("Press Enter for the first item")
-lootRoll = random.choices(range(1, len(loot_options) +1))
-loot = loot_options[lootRoll - 1]
+print("You find a loot bag! look inside to find 2 items")
+input("Roll for the first item (Press Enter)")
+lootRoll = random.choice(range(1, len(loot_options) + 1))
+loot = loot_options.pop(lootRoll - 1)
 belt.append(loot)
-print("Your belt items is: " + str(belt))
+print("Your belt item is: ", belt)
 
 # Q6
-print("You find a loot bag! Look inside to find 2 items")
-input("Press Enter to open the second item")
-lootRoll = random.choices(range(1, len(loot_options) +1))
-loot = loot_options[lootRoll - 1]
+print("You find a loot bag! look inside to find 2 items")
+input("Roll for the second item (Press Enter)")
+lootRoll = random.choice(range(1, len(loot_options) + 1))
+loot = loot_options.pop(lootRoll - 1)
 belt.append(loot)
-print("Your belt items are: " + str(belt))
+print("Your belt items are: ", belt)
 
 # Q7
 belt.sort()
 print("Your belt items are: " + str(belt))
+
+# Q8
+print("You see a Monster! Use your items!")
+first_item = belt.pop(0)
+if first_item in good_loot_options:
+    health_points = min(6, (health_points + 2))
+    print(f"You used the " + first_item + " and your HP changed to " + str(health_points))
+elif first_item in bad_loot_options:
+    health_points = max(0, (health_points - 2))
+    print(f"You used the " + first_item + " and your HP changed to " + str(health_points))
+else:
+    print("You used the " + first_item + " but it had no effect")
 
 # Weapon Roll Analysis
 input("Analyze the Weapon roll (Press enter)")
