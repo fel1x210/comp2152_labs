@@ -147,6 +147,10 @@ loot = loot_options[lootRoll - 1]
 belt.append(loot)
 print("Your belt items are: " + str(belt))
 
+# Q7
+belt.sort()
+print("Your belt items are: " + str(belt))
+
 # Weapon Roll Analysis
 input("Analyze the Weapon roll (Press enter)")
 if weaponRoll <= 2:
