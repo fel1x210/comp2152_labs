@@ -81,6 +81,9 @@ loot_options = ["Health Potion", "Poison Potion", "Secret Note", "Leather Boots"
 good_loot_options = ["Health Potion", "Leather Boots"]
 bad_loot_options = ["Poison Potion"]
 
+# Q4
+belt = []
+
 # Q1- Define the Monster's power
 monster_power = {
     "Fire Magic": 2,
@@ -127,6 +130,22 @@ weaponRoll = random.choice(diceOptions)
 # Max out the combat strength at 6
 combat_strength = min(6, (combat_strength + weaponRoll))
 print("The hero\'s weapon is " + str(weapons[weaponRoll - 1]))
+
+# Q5
+print("You find a loot bag! Look inside to find 2 items")
+input("Press Enter for the first item")
+lootRoll = random.choices(range(1, len(loot_options) +1))
+loot = loot_options[lootRoll - 1]
+belt.append(loot)
+print("Your belt items is: " + str(belt))
+
+# Q6
+print("You find a loot bag! Look inside to find 2 items")
+input("Press Enter to open the second item")
+lootRoll = random.choices(range(1, len(loot_options) +1))
+loot = loot_options[lootRoll - 1]
+belt.append(loot)
+print("Your belt items are: " + str(belt))
 
 # Weapon Roll Analysis
 input("Analyze the Weapon roll (Press enter)")
