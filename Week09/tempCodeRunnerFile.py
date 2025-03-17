@@ -19,7 +19,7 @@ file_object_TextIO = os.fdopen(file_handle, "w+")
 file_object_TextIO.write("Some string to write to this file")
 file_object_TextIO.flush()
 
-pid = 0
+pid = 1
 #MacOS
 #pid = os.fork()
 
@@ -32,7 +32,7 @@ if pid == 0:
 else:
     print(f"\nParent Process ID: {os.getpid()}, Child Process ID: {pid}")
     print("Wait for child")
-    os.waitpid(pid, 0)
+    os.wait(pid, 0)
     print("Child done")
     file_object_TextIO.close()
 sys.exit(0)
